@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ public static class DataExtensions
         IConfiguration configuration)
     {
         services.AddDbContext<DataContext>(o => o.UseSqlServer(configuration.GetConnectionString("Sql")));
+        services.AddScoped<IOrderRepository, OrderRepository>();
 
         return services;
     }

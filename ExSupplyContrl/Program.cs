@@ -1,9 +1,11 @@
 using Data;
+using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.ConfigureDataContext(builder.Configuration);
+builder.Services.AddServicesInServices(builder.Configuration);
 
 
 builder.Services.AddControllers();
