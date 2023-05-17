@@ -1,5 +1,4 @@
-﻿using Core;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
 namespace ExSupplyContrl.Controllers

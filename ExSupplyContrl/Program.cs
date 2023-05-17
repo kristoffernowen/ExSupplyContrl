@@ -3,7 +3,7 @@ using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.ConfigureDataContext(builder.Configuration);
 builder.Services.AddServices();
 

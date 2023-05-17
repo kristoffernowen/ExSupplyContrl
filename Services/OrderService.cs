@@ -1,4 +1,6 @@
-﻿using Core;
+﻿using AutoMapper;
+using Core;
+using Dtos;
 using Services.Contracts;
 
 namespace Services;
@@ -6,10 +8,13 @@ namespace Services;
 public class OrderService : IOrderService
 {
     private readonly IOrderRepository _orderRepository;
+    private readonly IMapper _mapper;
 
-    public OrderService(IOrderRepository orderRepository)
+
+    public OrderService(IOrderRepository orderRepository, IMapper mapper)
     {
         _orderRepository = orderRepository;
+        _mapper = mapper;
     }
     public void Create(string content)
     {
@@ -21,8 +26,10 @@ public class OrderService : IOrderService
         _orderRepository.Save();
     }
 
-    public List<Order> Get()
+    public List<OrderOutputDto> Get()
     {
-        return _orderRepository.Get();
+        var list = _orderRepository.Get().ToList();
+
+        return list.Select(o => _mapper.Map<OrderOutputDto>(o)).ToList();
     }
 }
