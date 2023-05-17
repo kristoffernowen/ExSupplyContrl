@@ -1,6 +1,6 @@
 ﻿using Core;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Services.Contracts;
 
 namespace ExSupplyContrl.Controllers
 {
@@ -29,7 +29,7 @@ namespace ExSupplyContrl.Controllers
                 Console.WriteLine(e);
             }
 
-            return Problem("Fungerade inte");
+            return BadRequest();
         }
 
         [HttpGet]

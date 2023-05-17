@@ -1,13 +1,11 @@
-﻿using Core;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Services.Contracts;
 
 namespace Services
 {
     public static class ServicesExtensions
     {
-        public static IServiceCollection AddServicesInServices(this IServiceCollection services,
-            IConfiguration configuration)
+        public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IOrderService, OrderService>();
 

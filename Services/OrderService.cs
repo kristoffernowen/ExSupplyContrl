@@ -1,4 +1,5 @@
 ﻿using Core;
+using Services.Contracts;
 
 namespace Services;
 
@@ -10,7 +11,6 @@ public class OrderService : IOrderService
     {
         _orderRepository = orderRepository;
     }
-
     public void Create(string content)
     {
         var order = new Order
